@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	    <meta name="mobile-web-app-capable" content="yes">
+        <link rel="icon" sizes="192x192" href="pix/logo.png"> 
+        <link type="text/css" rel="stylesheet" href="css.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js.js"></script>
+        <link rel="shortcut icon" href="pix/logo.png">
+    </head>
+
+    <body>
+        <div id="AskNumPlayers">
+            ¿Cuántos jugadores sois?<br>
+            <input type="radio" name="jugadores" value="5" checked> 5<br>
+            <input type="radio" name="jugadores" value="6"> 6<br>
+            <input type="radio" name="jugadores" value="7"> 7<br>
+            <input type="radio" name="jugadores" value="8"> 8<br>
+            <input type="radio" name="jugadores" value="9"> 9<br>
+            <input type="radio" name="jugadores" value="10"> 10<br><br>
+            <button type="submit" onclick="set_number_of_players(this)">Aceptar</button>
+        </div>
+        
+        <div id="Tablero" style="display: none;">
+            <div id=PoliticasLiberales></div>
+            <div id=PoliticasFascistas></div>
+            <button type="submit" onclick="take_three()">Coger 3 políticas</button>
+            <button type="submit" onclick="apply_top()">Aplicar política directamente</button>
+        </div>
+        
+        <div id="EligePresi" style="display: none;">
+            Elige 2 políticas para pasarle al canciller<br><br>
+            <input type="checkbox" name="politicaPresi" value="0" class="checkbox" unchecked> <span id="politicaPresi0"></span><br>
+            <input type="checkbox" name="politicaPresi" value="1" class="checkbox"> <span id="politicaPresi1"></span><br>
+            <input type="checkbox" name="politicaPresi" value="2" class="checkbox"> <span id="politicaPresi2"></span><br>
+            <button type="button" id="AceptarPresi" onclick="pasar_canci()" disabled>Pasar al canciller</button>
+        </div>
+        
+        <div id="EligeCanci" style="display: none;">
+            Elige una política para aplicar<br><br>
+            <input type="checkbox" name="politicaCanci" value="0" class="checkbox"> <span id="politicaCanci0"></span><br>
+            <input type="checkbox" name="politicaCanci" value="1" class="checkbox"> <span id="politicaCanci1"></span><br>
+            <button type="button" id="AceptarCanci" onclick="apply_three()" disabled>Aplicar</button><br>
+            <button type="button" id="Vetar" onclick="veto()" disabled>Vetar políticas</button>
+        </div>
+        
+        <div id="EligeVeto" style="display: none;">
+            ¿Los dos estáis de acuerdo en vetar estas políticas?<br><br>
+            <button type="button" id="VetarSi" onclick="veto_si()">Sí</button><br>
+            <button type="button" id="VetarNo" onclick="veto_no()">No</button>
+        </div>
+        
+        <div id="FasistWin" style="display: none;">
+            <br><br>¡Han ganado los fascistas!<br><br>
+            <button type="button" id="Refresh" onclick="refresh()">¡Echar otra partida!</button><br>
+        </div>
+        
+        <div id="LiberalWin" style="display: none;">
+            <br><br>¡Han ganado los Liberales!<br><br>
+            <button type="button" id="Refresh" onclick="refresh()">¡Echar otra partida!</button><br>
+        </div>
+    </body>
+</html>
