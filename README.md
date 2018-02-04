@@ -1,2 +1,2 @@
 # hitler
-Juego hitler ocuerto
+Juego hitler oculto
